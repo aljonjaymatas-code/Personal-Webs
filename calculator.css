@@ -1,0 +1,94 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #001f3f; /* same background as login */
+  display: flex;
+  flex-direction: column; /* stack h2 + calculator */
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  color: white;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #4fc3f7; /* same highlight color as login */
+  text-align: center;
+}
+
+.calculator {
+  background: rgba(255, 255, 255, 0.1); /* semi-transparent box like login */
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  width: 320px; /* slightly wider to fit operators */
+  text-align: center;
+  min-height: 300px;
+}
+
+.calculator input {
+  width: 90%;
+  height: 50px;
+  text-align: right;
+  font-size: 20px;
+  border: 2px solid #4fc3f7;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  padding: 10px;
+  background: white;
+  color: #001f3f;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) auto; /* 3 number cols + 1 operator col */
+    gap: 10px;
+}
+
+button {
+    align-items: center;
+  padding: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #4fc3f7;
+  color: #001f3f;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #0288d1;
+  color: white;
+}
+
+.equal {
+  background: #ff5252;
+  color: white;
+}
+
+.equal:hover {
+  background: #d32f2f;
+}
+
+
+.clear {
+  background: #fdd835;
+  color: #001f3f;
+  font-weight: bold;
+}
+
+.clear:hover {
+  background: #fbc02d;
+}
+
+.delete {
+  background: #ff9800; /* orange */
+  color: white;
+  font-weight: bold;
+}
+
+.delete:hover {
+  background: #ef6c00;
+}

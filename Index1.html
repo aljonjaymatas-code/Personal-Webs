@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>🤖Chat GPT</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="Index1.css" />
+</head>
+<body>
+
+  
+  <div class="d-flex vh-100">
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar d-flex flex-column justify-content-between p-3 text-white">
+      <div>
+        <!-- Logo + Toggle -->
+        <div class="d-flex align-items-center justify-content-between mb-4 toggle-btn" onclick="toggleSidebar()">
+          <h1 class="fs-5 fw-bold m-0 logo-text">MyGPT</h1>
+          <!-- ChatGPT Logo SVG -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2405 2405" width="28" height="28" fill="#10a37f" style="cursor:pointer; background:black; border-radius:50%; padding:3px;">
+            <path d="M1401 0c234 0 431 168 466 390 25 7 49 16 73 27l6 2c222 97 346 343 287 577 18 19 34 39 49 60 140 190 121 454-44 622 6 25 11 51 14 77l1 7c27 245-142 469-384 520-14 23-29 45-45 66l-4 5c-143 184-392 253-615 168-22 13-45 23-68 32l-7 2c-232 88-493-7-617-223-26-5-52-12-78-20l-6-2c-232-86-378-317-357-563-20-19-38-40-55-62l-4-5C-2 1449 21 1180 192 1004c-7-27-12-55-16-83l-1-7C143 669 307 439 542 379c14-22 30-44 46-64l4-5C729 121 985 44 1212 145c21-10 42-19 64-27l6-2c39-14 80-23 121-28V0zM1202 512c-381 0-690 309-690 690s309 690 690 690 690-309 690-690-309-690-690-690z"/>
+          </svg>
+        </div>
+
+        <ul class="list-unstyled" id="menu">
+          <li class="sidebar-item active-item" onclick="setActive(this, 'Home')">
+            <i class="fa-solid fa-house-chimney"></i> <span class="label">Home</span>
+          </li>
+          <li class="sidebar-item" onclick="setActive(this, 'Chats')">
+            <i class="fa-solid fa-comments"></i> <span class="label">Chats</span>
+          </li>
+          <li class="sidebar-item" onclick="setActive(this, 'Chat History')">
+            <i class="fa-solid fa-clock-rotate-left"></i> <span class="label">Chat History</span>
+          </li>
+          <li class="sidebar-item" onclick="setActive(this, 'Library')">
+            <i class="fa-solid fa-book-open"></i> <span class="label">Library</span>
+          </li>
+          <li class="sidebar-item" onclick="setActive(this, 'Settings')">
+            <i class="fa-solid fa-gear"></i> <span class="label">Settings</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Profile Dropdown -->
+      <div class="dropdown profile">
+        <div
+          class="sidebar-item d-flex align-items-center gap-2"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <i class="fa-solid fa-user"></i> <span class="label">My Profile</span>
+        </div>
+        <ul class="dropdown-menu dropdown-menu-dark">
+          <li><a class="dropdown-item" href="#">Account Settings</a></li>
+          <li>
+            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#logoutModal">
+              Logout
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="flex-grow-1 p-4" id="content">
+      <h2 class="fw-bold">Home</h2>
+      <p class="fs-5">Welcome to MyGPT 🧠</p>
+      <div class="chat-input">
+        <input type="text" id="message" placeholder="Type a message..." />
+        <button class="btn btn-success">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Logout Confirmation Modal -->
+  <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content bg-dark text-white">
+        <div class="modal-header border-0">
+          <h5 class="modal-title" id="logoutModalLabel">Confirm Logout</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Are you leaving me na? Press Yes to logout.
+        </div>
+        <div class="modal-footer border-0">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+          <button type="button" class="btn btn-danger">Yes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Toggle sidebar collapse
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("collapsed");
+    }
+
+    // Update content and set active menu
+    function setActive(element, label) {
+      // Remove active class from all items
+      document.querySelectorAll(".sidebar-item").forEach((item) => {
+        item.classList.remove("active-item");
+      });
+      element.classList.add("active-item");
+
+      // Add chat input only for Home
+      let extra = "";
+      if (label === "Home") {
+        extra = `
+          <div class="chat-input">
+            <input type="text" id="message" placeholder="Type a message..." />
+            <button class="btn btn-success">Send</button>
+          </div>
+        `;
+      }
+
+      document.getElementById("content").innerHTML = `
+        <h2 class="fw-bold">${label}</h2>
+        <p class="fs-5">You are in the ${label} section.</p>
+        ${extra}
+      `;
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+</body>
+</html>

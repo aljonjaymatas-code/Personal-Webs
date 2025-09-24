@@ -1,0 +1,141 @@
+:root {
+  --bg:#0f1724; --card:#0b1220; --muted:#94a3b8; --accent:#7c3aed; --success:#10b981;
+  --glass: rgba(255,255,255,0.03);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+* { box-sizing: border-box }
+
+html, body { height: 100% }
+body {
+  margin: 0;
+  background: linear-gradient(180deg, #071029 0%, #071833 60%);
+  color: #e6eef8;
+  display: flex;
+  flex-direction: column;  /* stack header + app */
+  align-items: center;
+  padding: 24px;
+}
+
+.app {
+  width: 100%; max-width: 720px;
+  background: linear-gradient(180deg,var(--card), #071026 120%);
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 10px 30px rgba(2,6,23,0.7);
+  border: 1px solid rgba(37, 34, 34, 0.02);
+}
+
+h1 { margin: 0; font-size: 20px; letter-spacing: 0.2px }
+.subtitle { color: var(--muted); font-size: 13px }
+
+.input-row { display: flex; gap: 8px; margin: 12px 0 }
+input.add {
+  flex: 1; padding: 12px 14px; border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.04);
+  background: var(--glass); color: inherit; font-size: 15px;
+}
+
+button.add-btn {
+  padding: 10px 14px; border-radius: 10px; border: none;
+  background: var(--accent); color: white; font-weight: 600;
+  cursor: pointer;
+}
+button.add-btn:active { transform: translateY(1px) }
+
+.controls { display: flex; align-items: center; justify-content: space-between; margin-top: 10px; gap: 12px }
+.filters { display: flex; gap: 8px }
+.filters button {
+  background: transparent; border: 1px solid rgba(255,255,255,0.03);
+  padding: 8px 10px; border-radius: 8px;
+  color: var(--muted); cursor: pointer;
+}
+.filters button.active { border-color: var(--accent); color: var(--accent); font-weight: 600 }
+
+ul.list { list-style: none; margin: 14px 0; padding: 0; max-height: 420px; overflow: auto }
+li.item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px; border-radius: 10px; margin-bottom: 8px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+  border: 1px solid rgba(255,255,255,0.02);
+}
+li.item .checkbox {
+  width: 20px; height: 20px; border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.06);
+  display: inline-flex; align-items: center; justify-content: center;
+  cursor: pointer;
+}
+li.item.done .checkbox {
+  background: linear-gradient(180deg,var(--success), #0ea36b); border: none;
+}
+li.item .text {
+  flex: 1; font-size: 15px; color: inherit; word-break: break-word; padding-right: 6px;
+}
+li.item.done .text { opacity: 0.6; text-decoration: line-through; color: var(--muted) }
+.actions { display: flex; gap: 8px; align-items: center }
+.btn-ghost { background: transparent; border: none; color: var(--muted); cursor: pointer; font-size: 14px }
+.count { color: var(--muted); font-size: 13px }
+
+.empty {
+  padding: 28px; border-radius: 10px; text-align: center;
+  color: var(--muted); border: 1px dashed rgba(255,255,255,0.03);
+}
+
+@media (max-width:480px){
+  h1 { font-size: 18px }
+  input.add { font-size: 14px }
+}
+
+/* Only style headers INSIDE the app */
+.app header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+/* Title + subtitle ABOVE the app box */
+.page-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.page-header h1 {
+  font-size: 28px;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.page-header .subtitle {
+  font-size: 15px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+
+
+@media (max-width: 768px) {
+  .app {
+    padding: 14px;
+  }
+  input.add {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 18px }
+  input.add { font-size: 13px }
+  button.add-btn { padding: 8px 12px; font-size: 14px }
+}
+
+.edit-input {
+  flex: 1;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.05);
+  color: inherit;
+  font-size: 15px;
+}
+

@@ -1,0 +1,158 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #001f3f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  color: white;
+}
+
+
+
+/* login content */
+
+.login-box {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  width: 320px;
+  text-align: center;
+  min-height: 500px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.login-box h2 {
+  margin-bottom: 20px;
+  font-size: 45px;
+  color: #4fc3f7;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 2px solid #4fc3f7;
+  border-radius: 6px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+#loginForm {
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* take up available space */
+}
+
+
+
+
+/* Login button */
+.login-btn {
+  margin-top: auto;
+  width: 100%;
+  padding: 12px;
+  background: #4fc3f7;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #001f3f;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.login-btn:hover {
+  background: #0288d1;
+  color: white;
+}
+
+.error {
+  color: #ff5252;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Password box with eye button */
+.password-box {
+  position: relative;
+  width: 100%;
+}
+
+.password-box input {
+  width: 100%;
+  padding: 10px;
+  padding-right: 40px; /* space for 👁 button */
+  border: 2px solid #4fc3f7;
+  border-radius: 6px; /* same rounded corners as username */
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+
+/* Eye toggle button (inside input on the right) */
+.password-box .toggle-btn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #4fc3f7;
+  padding: 0;
+  line-height: 1;
+}
+
+.password-box .toggle-btn:hover {
+  color: #0288d1;
+}
+
+
+/* forgot password */
+
+.forgot-password {
+  text-align: center;
+  margin: 5px 0 15px 0;
+}
+.forgot-password a {
+  font-size: 14px;
+  color: #4fc3f7;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.forgot-password a:hover {
+  color: #0288d1;
+  text-decoration: underline;
+}
+
+
+/* sign up text */
+
+.signup-text {
+  margin-top: 15px;
+  font-size: 14px;
+  text-align: center;
+  color: white;
+}
+
+.signup-text a {
+  color: #4fc3f7;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.signup-text a:hover {
+  color: #0288d1;
+  text-decoration: underline;
+}
+
+
+

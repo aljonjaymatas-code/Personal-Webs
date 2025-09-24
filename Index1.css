@@ -1,0 +1,52 @@
+.sidebar {
+      background: #000;
+      width: 240px;
+      transition: all 0.3s ease-in-out;
+      border-right: 2px solid green;
+    }
+    .sidebar.collapsed {
+      width: 93px;
+    }
+    .sidebar-item {
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 8px;
+      margin-bottom: 5px;
+      color: white;
+    }
+    .sidebar-item:hover,
+    .active-item {
+      background: green;
+    }
+    .sidebar.collapsed .label {
+      display: none;
+    }
+
+    /* Keep content always centered */
+    #content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    /* Chat input style */
+    .chat-input {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 15px;
+      width: 100%;
+      max-width: 500px;
+    }
+    .chat-input input {
+      flex: 1;
+      padding: 10px;
+      border-radius: 20px 0 0 20px;
+      border: 1px solid #ccc;
+      outline: none;
+    }
+    .chat-input button {
+      border-radius: 0 20px 20px 0;
+    }
