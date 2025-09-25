@@ -46,7 +46,7 @@ h2 {
 }
 
 button {
-    align-items: center;
+  align-items: center;
   padding: 15px;
   font-size: 18px;
   font-weight: bold;
@@ -72,7 +72,6 @@ button:hover {
   background: #d32f2f;
 }
 
-
 .clear {
   background: #fdd835;
   color: #001f3f;
@@ -91,4 +90,14 @@ button:hover {
 
 .delete:hover {
   background: #ef6c00;
+}
+
+.logout {
+  background: #e53935;
+  color: white;
+  font-weight: bold;
+}
+
+.logout:hover {
+  background: #b71c1c;
 }

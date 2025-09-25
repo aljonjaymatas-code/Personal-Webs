@@ -44,3 +44,8 @@ form.addEventListener("submit", function(event) {
     errorMsg.textContent = "Invalid username or password!";
   }
 });
+function logout() {
+  // Redirect back to your main index.html
+  window.location.href = "index.html";
+}
+
