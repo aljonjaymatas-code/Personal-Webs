@@ -104,30 +104,6 @@ canvas {
   margin: 0 30px; 
 } 
 
-@media (max-width: 768px) {
-  .navbar ul {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    background: rgba(255, 255, 255, 0.95);
-    border: 2px solid #4fc3f7;
-    border-radius: 10px;
-    padding: 15px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  } 
-  .navbar ul li {
-    margin: 10px 0;
-  } 
-  .navbar .hamburger {
-    display: block; 
-  } 
-  .navbar ul.active {
-    display: flex; 
-  } 
-}
-
 /* ================== Main Content ================== */
 .main-content, 
 .about, 
@@ -218,9 +194,9 @@ canvas {
 }
 .skills-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 40px;
-  max-width: 700px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* responsive like projects */
+  gap: 20px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 .skill-box {
@@ -239,9 +215,9 @@ canvas {
   transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 .skill-box:hover {
-  transform: translateY(-8px) scale(1.05);
+  transform: translateY(-6px);
+  box-shadow: 0 6px 25px rgba(79, 195, 247, 0.6);
   background: rgba(0, 60, 120, 0.9);
-  box-shadow: 0 0 20px rgba(79, 195, 247, 0.8);
 }
 
 /* ================== Schedule Section ================== */
@@ -282,9 +258,7 @@ canvas {
   color: #fff;
   transition: background 0.3s ease; 
 } 
-.schedule-table tr:hover td {
-  background: rgba(79, 195, 247, 0.15);
-} 
+.schedule-table tr:hover td { background: rgba(79, 195, 247, 0.15); }
 
 /* ================== Projects Section ================== */
 .section {
@@ -401,12 +375,49 @@ canvas {
 .contact-form button:hover { background: #0288d1; color: white; }
 
 /* ================== Media Queries ================== */
-@media(max-width: 900px) { .projects-grid { grid-template-columns: repeat(2, 1fr); } }
+@media(max-width: 900px) { .projects-grid, .skills-container { grid-template-columns: repeat(2, 1fr); } }
 @media(max-width: 600px) { 
-  .projects-grid { grid-template-columns: 1fr; }
+  .projects-grid, .skills-container { grid-template-columns: 1fr; }
   .about { padding: 30px 20px; }
   .about h2 { font-size: 2rem; }
   .about p { font-size: 16px; }
-  .skills-container { gap: 20px; }
   .schedule { font-size: 14px; }
+}
+
+/* ================== Extra Mobile Responsiveness ================== */
+@media (max-width: 768px) {
+  .navbar { padding: 8px 15px; }
+  .navbar .logo { font-size: 18px; }
+  .content p { font-size: 18px; }
+  .content img { width: 180px; }
+  .about, .skills, .schedule, .section, .albums-section, .map-section { padding: 30px 15px; margin: 20px auto; }
+  .about h2, .skills h2 { font-size: 1.8rem; }
+  .navbar ul.active { display: flex; flex-direction: column; position: absolute; top: 60px; right: 20px; background: rgba(255,255,255,0.95); border: 2px solid #4fc3f7; border-radius: 10px; padding: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+  .navbar ul { display: none; }
+  .navbar ul li { margin: 10px 0; }
+  .navbar .hamburger { display: block; }
+}
+
+@media (max-width: 480px) {
+  body { font-size: 14px; }
+  .navbar { width: 100%; padding: 6px 12px; }
+  .navbar .logo { font-size: 16px; }
+  .navbar .hamburger { margin: 0; font-size: 24px; }
+  .navbar ul { top: 50px; right: 10px; width: 80%; max-width: 260px; padding: 10px; }
+  .content img { width: 140px; margin: 10px 0; }
+  .content p { font-size: 16px; }
+  .about { padding: 20px 15px; font-size: 14px; min-height: auto; }
+  .about h2 { font-size: 1.5rem; }
+  .skills-container { grid-template-columns: 1fr 1fr; gap: 15px; }
+  .skill-box { font-size: 0.9rem; padding: 10px; }
+  .schedule { font-size: 12px; padding: 10px; }
+  .schedule-table th, .schedule-table td { padding: 8px; font-size: 12px; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .project-card { max-width: 90%; }
+  .photos-grid, .music-grid, .video-grid { grid-template-columns: 1fr; }
+  .photo-box img, .video-box video { height: 180px; }
+  .map-container iframe { height: 250px; }
+  .contact-form { padding: 15px; margin-bottom: 100px; }
+  .contact-form input, .contact-form textarea { font-size: 14px; padding: 10px; }
+  .contact-form button { font-size: 14px; padding: 10px; }
 }
